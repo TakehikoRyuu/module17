@@ -11,9 +11,9 @@ class Task(Base):
     content = Column(String)
     priority = Column(Integer, default=0)
     completed = Column(Boolean, default=False)
-    user_id = Column(Integer, ForeignKey('users.id'), nullable=False, index=True)# внешний ключ на id из таблицы 'users'
+    user_id = Column(Integer, ForeignKey('users.id'), nullable=False, index=True)
     slug = Column(String, unique=True, index=True)
-    user = relationship("User", back_populates="tasks")# user - объект связи с таблицей с таблицей User, где back_populates='tasks'.
+    user = relationship("User", back_populates="tasks")
 
 
 from sqlalchemy.schema import CreateTable
